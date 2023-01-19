@@ -22,8 +22,15 @@ module SessionHelper
     def logged_in?
         !current_user.nil?
     end
+    #forget
+    def forget(user)
+        user.forget
+        cookies.delete(:user_id)
+        cookies.delete(:remember_token)
+    end
     #logout
     def log_out
+        forget(current_user)
         reset_session
         @current_user=nil
     end
