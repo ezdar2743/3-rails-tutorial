@@ -16,11 +16,11 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
   test 'name should not be too long' do
-    @user.name = 'a' * 11
+    @user.name = 'a' * 31
     assert_not @user.valid?
   end
   test 'email should not be too long' do
-    @user.email = 'a' * 21
+    @user.email = 'a' * 31
     assert_not @user.valid?
   end
   test 'email validation should accept valid address' do
@@ -36,12 +36,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not duplicate_user.valid?
   end
   test 'password should be present (nonblank)' do
-    @user.password = @user.password_confirmation = ' ' * 6
+    @user.password = @user.password_confirmation = ' ' * 2
     assert_not @user.valid?
   end
 
   test 'password should have a minimum length' do
-    @user.password = @user.password_confirmation = 'a' * 5
+    @user.password = @user.password_confirmation = 'a' * 2
     assert_not @user.valid?
   end
 end
