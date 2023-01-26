@@ -9,7 +9,7 @@ class User < ApplicationRecord
                     uniqueness: true
   validates :password, presence: true, length: { minimum: 3 }, allow_nil: true
     # 渡された文字列のハッシュ値を返す
-   class << self
+  class << self
     def digest(string)
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
       BCrypt::Password.create(string, cost: cost)
@@ -19,7 +19,7 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
-   end
+  end
 
     def remember
       self.remember_token = User.new_token
@@ -27,6 +27,8 @@ class User < ApplicationRecord
       remember_digest
     end
 
+    # セッションハイジャック防止のためにセッショントークンを返す
+    # この記憶ダイジェストを再利用しているのは単に利便性のため
     def session_token
       remember_digest || remember
     end
