@@ -50,16 +50,15 @@ class User < ApplicationRecord
   private
 
   #Email to Lowercase
-
   def downcase_email
-    self.email = email.downcase
+    email.downcase!
   end
 
   # Create an Activation token,digest
-
   def create_activation_digest
     self.activation_token = User.new_token
     self.activation_digest = User.digest(activation_token)
+    
   end
 
 end
