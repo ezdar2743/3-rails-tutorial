@@ -44,6 +44,7 @@ gem 'bootsnap', require: false
 
 
 gem "active_storage_validations", "0.9.8"
+gem "image_processing",           "1.12.2"
 gem 'bcrypt', '3.1.18'
 gem 'bootstrap-sass', '3.4.1'
 gem 'bootstrap-will_paginate', '1.0.0'
