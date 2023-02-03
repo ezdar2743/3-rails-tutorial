@@ -28,7 +28,7 @@ gem 'stimulus-rails'
 gem 'jbuilder'
 
 group :production do
-  gem "aws-sdk-s3", "1.114.0", require: false
+  gem 'aws-sdk-s3', '1.114.0', require: false
 end
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -45,13 +45,12 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
-
-gem "active_storage_validations", "0.9.8"
-gem "image_processing",           "1.12.2"
+gem 'active_storage_validations', '0.9.8'
 gem 'bcrypt', '3.1.18'
 gem 'bootstrap-sass', '3.4.1'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'faker', '2.21.0'
+gem 'image_processing', '1.12.2'
 gem 'rails-controller-testing'
 gem 'sassc-rails'
 gem 'will_paginate', '3.3.1'

@@ -63,7 +63,7 @@ class User < ApplicationRecord
   # パスワード再設定の属性を設定する
   def create_reset_digest
     self.reset_token = User.new_token
-    update_columns(reset_digest: User.digest(reset_token),reset_sent_at: Time.zone.now)
+    update_columns(reset_digest: User.digest(reset_token), reset_sent_at: Time.zone.now)
   end
 
   # パスワード再設定のメールを送信する
@@ -77,7 +77,7 @@ class User < ApplicationRecord
   end
 
   def feed
-    Micropost.where("user_id = ?",id)
+    Micropost.where('user_id = ?', id)
   end
 
   private
